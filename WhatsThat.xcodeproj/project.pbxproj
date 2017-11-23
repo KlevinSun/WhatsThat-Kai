@@ -8,10 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		78AEAA821FC61785007282B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AEAA811FC61785007282B3 /* AppDelegate.swift */; };
-		78AEAA841FC61785007282B3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AEAA831FC61785007282B3 /* ViewController.swift */; };
 		78AEAA871FC61785007282B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78AEAA851FC61785007282B3 /* Main.storyboard */; };
 		78AEAA891FC61785007282B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78AEAA881FC61785007282B3 /* Assets.xcassets */; };
 		78AEAA8C1FC61785007282B3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78AEAA8A1FC61785007282B3 /* LaunchScreen.storyboard */; };
+		78AEAA981FC6207E007282B3 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AEAA971FC6207E007282B3 /* MenuViewController.swift */; };
+		78AEAA9A1FC63D9D007282B3 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AEAA991FC63D9D007282B3 /* CameraViewController.swift */; };
 		C36A51E956E6FC0E777C3BC1 /* Pods_WhatsThat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A27BF998DEE170896EADF77 /* Pods_WhatsThat.framework */; };
 /* End PBXBuildFile section */
 
@@ -19,11 +20,12 @@
 		48714A3EBABC740F1C0D1BB9 /* Pods-WhatsThat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhatsThat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WhatsThat/Pods-WhatsThat.debug.xcconfig"; sourceTree = "<group>"; };
 		78AEAA7E1FC61785007282B3 /* WhatsThat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhatsThat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		78AEAA811FC61785007282B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		78AEAA831FC61785007282B3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		78AEAA861FC61785007282B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		78AEAA881FC61785007282B3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		78AEAA8B1FC61785007282B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		78AEAA8D1FC61785007282B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		78AEAA971FC6207E007282B3 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		78AEAA991FC63D9D007282B3 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		7A27BF998DEE170896EADF77 /* Pods_WhatsThat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WhatsThat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8D29BFE23731F97B040827C /* Pods-WhatsThat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhatsThat.release.xcconfig"; path = "Pods/Target Support Files/Pods-WhatsThat/Pods-WhatsThat.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -71,13 +73,46 @@
 			isa = PBXGroup;
 			children = (
 				78AEAA811FC61785007282B3 /* AppDelegate.swift */,
-				78AEAA831FC61785007282B3 /* ViewController.swift */,
-				78AEAA851FC61785007282B3 /* Main.storyboard */,
-				78AEAA881FC61785007282B3 /* Assets.xcassets */,
-				78AEAA8A1FC61785007282B3 /* LaunchScreen.storyboard */,
 				78AEAA8D1FC61785007282B3 /* Info.plist */,
+				78AEAA941FC619AE007282B3 /* view controllers */,
+				78AEAA931FC6196C007282B3 /* views */,
+				78AEAA951FC619DF007282B3 /* models */,
+				78AEAA961FC619F4007282B3 /* utils */,
 			);
 			path = WhatsThat;
+			sourceTree = "<group>";
+		};
+		78AEAA931FC6196C007282B3 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				78AEAA8A1FC61785007282B3 /* LaunchScreen.storyboard */,
+				78AEAA851FC61785007282B3 /* Main.storyboard */,
+				78AEAA881FC61785007282B3 /* Assets.xcassets */,
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
+		78AEAA941FC619AE007282B3 /* view controllers */ = {
+			isa = PBXGroup;
+			children = (
+				78AEAA971FC6207E007282B3 /* MenuViewController.swift */,
+				78AEAA991FC63D9D007282B3 /* CameraViewController.swift */,
+			);
+			path = "view controllers";
+			sourceTree = "<group>";
+		};
+		78AEAA951FC619DF007282B3 /* models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = models;
+			sourceTree = "<group>";
+		};
+		78AEAA961FC619F4007282B3 /* utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = utils;
 			sourceTree = "<group>";
 		};
 		BF9BE823176FE8565C05BFA8 /* Frameworks */ = {
@@ -214,8 +249,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				78AEAA841FC61785007282B3 /* ViewController.swift in Sources */,
 				78AEAA821FC61785007282B3 /* AppDelegate.swift in Sources */,
+				78AEAA981FC6207E007282B3 /* MenuViewController.swift in Sources */,
+				78AEAA9A1FC63D9D007282B3 /* CameraViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
