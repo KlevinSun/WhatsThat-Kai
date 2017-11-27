@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		784756DD1FCB75C2005055F6 /* VisionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784756DC1FCB75C2005055F6 /* VisionViewController.swift */; };
+		784756DF1FCB7C08005055F6 /* VisionLabelFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784756DE1FCB7C08005055F6 /* VisionLabelFinder.swift */; };
+		784756E11FCB7CCA005055F6 /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784756E01FCB7CCA005055F6 /* Label.swift */; };
+		786832FE1FC90A3100F440CA /* GVisionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786832FD1FC90A3100F440CA /* GVisionResponse.swift */; };
+		786833001FC90A5A00F440CA /* GVisionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786832FF1FC90A5A00F440CA /* GVisionRequest.swift */; };
+		78793BEA1FCBB4A3005B6C68 /* LabelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78793BE91FCBB4A3005B6C68 /* LabelTableViewCell.swift */; };
 		78AEAA821FC61785007282B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AEAA811FC61785007282B3 /* AppDelegate.swift */; };
 		78AEAA871FC61785007282B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78AEAA851FC61785007282B3 /* Main.storyboard */; };
 		78AEAA891FC61785007282B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78AEAA881FC61785007282B3 /* Assets.xcassets */; };
@@ -18,6 +24,12 @@
 
 /* Begin PBXFileReference section */
 		48714A3EBABC740F1C0D1BB9 /* Pods-WhatsThat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhatsThat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WhatsThat/Pods-WhatsThat.debug.xcconfig"; sourceTree = "<group>"; };
+		784756DC1FCB75C2005055F6 /* VisionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionViewController.swift; sourceTree = "<group>"; };
+		784756DE1FCB7C08005055F6 /* VisionLabelFinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionLabelFinder.swift; sourceTree = "<group>"; };
+		784756E01FCB7CCA005055F6 /* Label.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
+		786832FD1FC90A3100F440CA /* GVisionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GVisionResponse.swift; sourceTree = "<group>"; };
+		786832FF1FC90A5A00F440CA /* GVisionRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GVisionRequest.swift; sourceTree = "<group>"; };
+		78793BE91FCBB4A3005B6C68 /* LabelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelTableViewCell.swift; sourceTree = "<group>"; };
 		78AEAA7E1FC61785007282B3 /* WhatsThat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhatsThat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		78AEAA811FC61785007282B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		78AEAA861FC61785007282B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -49,6 +61,15 @@
 				B8D29BFE23731F97B040827C /* Pods-WhatsThat.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		786832FC1FC9090800F440CA /* codable */ = {
+			isa = PBXGroup;
+			children = (
+				786832FD1FC90A3100F440CA /* GVisionResponse.swift */,
+				786832FF1FC90A5A00F440CA /* GVisionRequest.swift */,
+			);
+			path = codable;
 			sourceTree = "<group>";
 		};
 		78AEAA751FC61785007282B3 = {
@@ -88,6 +109,7 @@
 				78AEAA8A1FC61785007282B3 /* LaunchScreen.storyboard */,
 				78AEAA851FC61785007282B3 /* Main.storyboard */,
 				78AEAA881FC61785007282B3 /* Assets.xcassets */,
+				78793BE91FCBB4A3005B6C68 /* LabelTableViewCell.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -97,6 +119,7 @@
 			children = (
 				78AEAA971FC6207E007282B3 /* MenuViewController.swift */,
 				78AEAA991FC63D9D007282B3 /* CameraViewController.swift */,
+				784756DC1FCB75C2005055F6 /* VisionViewController.swift */,
 			);
 			path = "view controllers";
 			sourceTree = "<group>";
@@ -104,6 +127,8 @@
 		78AEAA951FC619DF007282B3 /* models */ = {
 			isa = PBXGroup;
 			children = (
+				786832FC1FC9090800F440CA /* codable */,
+				784756E01FCB7CCA005055F6 /* Label.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -111,6 +136,7 @@
 		78AEAA961FC619F4007282B3 /* utils */ = {
 			isa = PBXGroup;
 			children = (
+				784756DE1FCB7C08005055F6 /* VisionLabelFinder.swift */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -233,9 +259,12 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-WhatsThat/Pods-WhatsThat-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -250,8 +279,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				78AEAA821FC61785007282B3 /* AppDelegate.swift in Sources */,
+				786833001FC90A5A00F440CA /* GVisionRequest.swift in Sources */,
 				78AEAA981FC6207E007282B3 /* MenuViewController.swift in Sources */,
+				786832FE1FC90A3100F440CA /* GVisionResponse.swift in Sources */,
+				784756DD1FCB75C2005055F6 /* VisionViewController.swift in Sources */,
+				78793BEA1FCBB4A3005B6C68 /* LabelTableViewCell.swift in Sources */,
 				78AEAA9A1FC63D9D007282B3 /* CameraViewController.swift in Sources */,
+				784756E11FCB7CCA005055F6 /* Label.swift in Sources */,
+				784756DF1FCB7C08005055F6 /* VisionLabelFinder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

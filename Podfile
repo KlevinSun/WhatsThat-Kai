@@ -6,5 +6,6 @@ target 'WhatsThat' do
   use_frameworks!
 
   # Pods for WhatsThat
+  pod 'MBProgressHUD', '~> 1.1.0'
 
 end

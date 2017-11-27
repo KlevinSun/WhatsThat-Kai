@@ -11,6 +11,7 @@ import UIKit
 class CameraViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     var imagePicker: UIImagePickerController!
+    var imageStr: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,14 +41,26 @@ class CameraViewController: UIViewController {
         imagePicker.delegate = self
         self.present(imagePicker, animated: true, completion: nil)
     }
+    
+   
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destView = segue.destination as? VisionViewController {
+            destView.imageStr = imageStr
+            destView.showImage.image = imageView.image
+        }
+    }
 }
 
 
 extension CameraViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+    @objc func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         imageView.image = info["UIImagePickerControllerEditedImage"] as? UIImage
         imagePicker.dismiss(animated: true, completion: nil)
+        
+        let imageData:NSData = UIImageJPEGRepresentation(imageView.image!, 0.9)! as NSData
+        imageStr = imageData.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
+        print(imageStr)
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
