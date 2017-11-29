@@ -19,6 +19,7 @@
 		78AEAA8C1FC61785007282B3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78AEAA8A1FC61785007282B3 /* LaunchScreen.storyboard */; };
 		78AEAA981FC6207E007282B3 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AEAA971FC6207E007282B3 /* MenuViewController.swift */; };
 		78AEAA9A1FC63D9D007282B3 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AEAA991FC63D9D007282B3 /* CameraViewController.swift */; };
+		78F6ED391FCE442100EF20AF /* IdentificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F6ED381FCE442100EF20AF /* IdentificationViewController.swift */; };
 		C36A51E956E6FC0E777C3BC1 /* Pods_WhatsThat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A27BF998DEE170896EADF77 /* Pods_WhatsThat.framework */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +39,7 @@
 		78AEAA8D1FC61785007282B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		78AEAA971FC6207E007282B3 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		78AEAA991FC63D9D007282B3 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
+		78F6ED381FCE442100EF20AF /* IdentificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentificationViewController.swift; sourceTree = "<group>"; };
 		7A27BF998DEE170896EADF77 /* Pods_WhatsThat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WhatsThat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8D29BFE23731F97B040827C /* Pods-WhatsThat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhatsThat.release.xcconfig"; path = "Pods/Target Support Files/Pods-WhatsThat/Pods-WhatsThat.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -120,6 +122,7 @@
 				78AEAA971FC6207E007282B3 /* MenuViewController.swift */,
 				78AEAA991FC63D9D007282B3 /* CameraViewController.swift */,
 				784756DC1FCB75C2005055F6 /* VisionViewController.swift */,
+				78F6ED381FCE442100EF20AF /* IdentificationViewController.swift */,
 			);
 			path = "view controllers";
 			sourceTree = "<group>";
@@ -282,6 +285,7 @@
 				786833001FC90A5A00F440CA /* GVisionRequest.swift in Sources */,
 				78AEAA981FC6207E007282B3 /* MenuViewController.swift in Sources */,
 				786832FE1FC90A3100F440CA /* GVisionResponse.swift in Sources */,
+				78F6ED391FCE442100EF20AF /* IdentificationViewController.swift in Sources */,
 				784756DD1FCB75C2005055F6 /* VisionViewController.swift in Sources */,
 				78793BEA1FCBB4A3005B6C68 /* LabelTableViewCell.swift in Sources */,
 				78AEAA9A1FC63D9D007282B3 /* CameraViewController.swift in Sources */,

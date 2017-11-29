@@ -11,6 +11,7 @@ import UIKit
 class CameraViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     var imagePicker: UIImagePickerController!
+    var imageFound: UIImage = UIImage()
     var imageStr: String = ""
     
     override func viewDidLoad() {
@@ -46,7 +47,7 @@ class CameraViewController: UIViewController {
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destView = segue.destination as? VisionViewController {
             destView.imageStr = imageStr
-            destView.showImage.image = imageView.image
+            destView.image = imageFound
         }
     }
 }
@@ -54,16 +55,40 @@ class CameraViewController: UIViewController {
 
 extension CameraViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     
-    @objc func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        imageView.image = info["UIImagePickerControllerEditedImage"] as? UIImage
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        imageFound = (info["UIImagePickerControllerEditedImage"] as? UIImage)!
+        imageView.image = imageFound
         imagePicker.dismiss(animated: true, completion: nil)
         
-        let imageData:NSData = UIImageJPEGRepresentation(imageView.image!, 0.9)! as NSData
-        imageStr = imageData.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
-        print(imageStr)
+        //let imageData:NSData = UIImageJPEGRepresentation(imageView.image!, 0.9)! as NSData
+        imageStr = base64EncodeImage(imageFound)
+        //print(imageStr)
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         imagePicker.dismiss(animated: true, completion: nil)
+    }
+    
+    func base64EncodeImage(_ image: UIImage) -> String {
+        var imagedata = UIImageJPEGRepresentation(image, 0.9)
+        let imdata : NSData = NSData(data: imagedata!)
+        
+        // Resize the image if it exceeds the 2MB API limit
+        if ((imdata.length / 1024) > 2097152) {
+            let oldSize: CGSize = image.size
+            let newSize: CGSize = CGSize(width: 800, height: oldSize.height / oldSize.width * 800)
+            imagedata = resizeImage(newSize, image: image)
+        }
+        
+        return imagedata!.base64EncodedString(options: .endLineWithCarriageReturn)
+    }
+    
+    func resizeImage(_ imageSize: CGSize, image: UIImage) -> Data {
+        UIGraphicsBeginImageContext(imageSize)
+        image.draw(in: CGRect(x: 0, y: 0, width: imageSize.width, height: imageSize.height))
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        let resizedImage = UIImagePNGRepresentation(newImage!)
+        UIGraphicsEndImageContext()
+        return resizedImage!
     }
 }

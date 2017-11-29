@@ -20,14 +20,22 @@ class VisionLabelFinder {
         var urlComponents = URLComponents(string: "https://vision.googleapis.com/v1/images:annotate")!
         urlComponents.queryItems = [URLQueryItem(name: "key", value: "AIzaSyDuxa733TwvzaGsHCc8r9byU0zTx7fQN3M")]
         let url = urlComponents.url!
-        let jsonRequestBody = GVision(requests: [Requests(image: Image(content: imageStr) , features: [Features(type: "LABLE_DETECTION", maxResults: 50)])])
-        let encoder = JSONEncoder()
-        let encodedBody = try? encoder.encode(jsonRequestBody)
+
+        
         var request = URLRequest(url: url)
-        request.httpBody = encodedBody
+        
         request.httpMethod = "POST"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue(Bundle.main.bundleIdentifier ?? "", forHTTPHeaderField: "X-Ios-Bundle-Identifier")
+        
+        let jsonRequestBody = GVision(requests: [Requests(image: Image(content: imageStr) , features: [Features(type: "LABEL_DETECTION", maxResults: 50)])])
+        let encoder = JSONEncoder()
+        guard let encodedBody = try? encoder.encode(jsonRequestBody) else{ return }
+        //let body = String(data: encodedBody, encoding: .utf8)
+        request.httpBody = encodedBody
         
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            
             guard let response = response as? HTTPURLResponse, response.statusCode == 200 else{
                 self.delegate?.labelsNotFound()
                 return

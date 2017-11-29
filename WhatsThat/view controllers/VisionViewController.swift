@@ -11,6 +11,8 @@ import MBProgressHUD
 
 class VisionViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     var imageStr: String = String()
+    var image: UIImage = UIImage()
+    var cellselected = String()
     @IBOutlet weak var showImage: UIImageView!
     @IBOutlet weak var tableView: UITableView!
     
@@ -30,8 +32,7 @@ class VisionViewController: UIViewController, UITableViewDataSource, UITableView
             labelFinder.fetchVisionLabel(imageStr: imageStr)
         }
         
-        
-        // Do any additional setup after loading the view.
+
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -46,6 +47,22 @@ class VisionViewController: UIViewController, UITableViewDataSource, UITableView
         
         return cell
     }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let index = tableView.indexPathForSelectedRow
+        let currentCell = labels[(index?.row)!]
+        print((index?.row)!)
+        cellselected = currentCell.description
+        print(cellselected)
+        performSegue(withIdentifier: "Identification", sender: self)
+        
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destView = segue.destination as? IdentificationViewController {
+            destView.label = cellselected
+        }
+    }
+    
+    
 }
 
 extension VisionViewController: VisionLabelDelegate {
@@ -53,6 +70,7 @@ extension VisionViewController: VisionLabelDelegate {
         self.labels = labels
         DispatchQueue.main.async {
             MBProgressHUD.hide(for: self.view, animated: true)
+            self.showImage.image = self.image
             self.tableView.reloadData()
         }
     }
