@@ -50,17 +50,14 @@ class VisionViewController: UIViewController, UITableViewDataSource, UITableView
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let index = tableView.indexPathForSelectedRow
         let currentCell = labels[(index?.row)!]
-        print((index?.row)!)
         cellselected = currentCell.description
-        print(cellselected)
-        performSegue(withIdentifier: "Identification", sender: self)
         
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let viewController = storyboard.instantiateViewController(withIdentifier: "wikiSummary") as! IdentificationViewController
+        viewController.label = cellselected
+        self.present(viewController, animated: true , completion: nil)
     }
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let destView = segue.destination as? IdentificationViewController {
-            destView.label = cellselected
-        }
-    }
+   
     
     
 }
