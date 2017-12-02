@@ -10,6 +10,6 @@ import Foundation
 
 struct Wiki {
     let title: String
-    let pageId: String
+    let pageId: Int
     let extract: String
 }

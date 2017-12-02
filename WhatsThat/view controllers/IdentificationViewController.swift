@@ -8,12 +8,16 @@
 
 import UIKit
 import MBProgressHUD
+import SafariServices
+
 
 class IdentificationViewController: UIViewController {
 
     @IBOutlet weak var visionLabel: UILabel!
     @IBOutlet weak var WIKISummary: UITextView!
     var label: String = String()
+    @IBOutlet weak var buttonWiki: UIBarButtonItem!
+    @IBOutlet weak var buttonTweet: UIBarButtonItem!
     var summary: Wiki?
     let wikiFinder = WikiSummaryFinder()
     
@@ -23,6 +27,8 @@ class IdentificationViewController: UIViewController {
         print(label)
         wikiFinder.delegate = self
         MBProgressHUD.showAdded(to: self.view, animated: true)
+        buttonWiki.isEnabled = false
+        buttonTweet.isEnabled = false
         loadSummary(label: label)
         
     }
@@ -32,6 +38,27 @@ class IdentificationViewController: UIViewController {
         wikiFinder.fetchWikiSummary(label: label)
     }
 
+    @IBAction func wikiOnclick(_ sender: Any) {
+        showSafari(pageID: (summary?.pageId)!)
+    }
+    @IBAction func tweetOnclick(_ sender: Any) {
+    }
+    
+    func showSafari(pageID : Int) {
+        if let url = URL(string: "https://en.wikipedia.org/?curid=\(pageID)") {
+            let config = SFSafariViewController.Configuration()
+            config.entersReaderIfAvailable = true
+            
+            let vc = SFSafariViewController(url: url, configuration: config)
+            present(vc, animated: true)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destView = segue.destination as? SearchTimelineViewController {
+            destView.searchTweet = label
+        }
+    }
 }
 
 extension IdentificationViewController: WikiSummaryDelegate{
@@ -41,6 +68,8 @@ extension IdentificationViewController: WikiSummaryDelegate{
             MBProgressHUD.hide(for: self.view, animated: true)
             self.WIKISummary.text = summary.extract
             self.WIKISummary.isEditable = false
+            self.buttonWiki.isEnabled = true
+            self.buttonTweet.isEnabled = true
         }
     }
     func wikiNotFound(reason: WikiSummaryFinder.FailureReason) {

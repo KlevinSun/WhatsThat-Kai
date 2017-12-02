@@ -12,7 +12,7 @@ import MBProgressHUD
 class VisionViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     var imageStr: String = String()
     var image: UIImage = UIImage()
-    var cellselected = String()
+    var cellselected: String?
     @IBOutlet weak var showImage: UIImageView!
     @IBOutlet weak var tableView: UITableView!
     
@@ -47,17 +47,36 @@ class VisionViewController: UIViewController, UITableViewDataSource, UITableView
         
         return cell
     }
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let index = tableView.indexPathForSelectedRow
-        let currentCell = labels[(index?.row)!]
+    
+    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        let index = indexPath
+        let currentCell = labels[index.row]
         cellselected = currentCell.description
+        return indexPath
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if (shouldPerformSegue(withIdentifier: "toWiki", sender: self) == false){
+            performSegue(withIdentifier: "toWiki", sender: self)
+        }
+        
+        /*let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let viewController = storyboard.instantiateViewController(withIdentifier: "wikiSummary") as! IdentificationViewController
         viewController.label = cellselected
-        self.present(viewController, animated: true , completion: nil)
+        self.present(viewController, animated: true , completion: nil)*/
     }
-   
+    
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        return cellselected == nil
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "toWiki"){
+            var viewController = segue.destination as! IdentificationViewController
+            viewController.label = cellselected ?? ""
+        }
+    }
     
     
 }

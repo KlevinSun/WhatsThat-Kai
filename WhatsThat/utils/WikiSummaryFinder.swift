@@ -30,7 +30,7 @@ class WikiSummaryFinder {
             URLQueryItem(name: "prop", value: "extracts"),
             URLQueryItem(name: "exintro", value: nil),
             URLQueryItem(name: "explaintext", value: nil),
-            URLQueryItem(name: "title", value: "\(label)")
+            URLQueryItem(name: "titles", value: "\(label)")
         ]
         let url = urlComponents.url!
         var request = URLRequest(url: url)
@@ -42,19 +42,32 @@ class WikiSummaryFinder {
                 return
             }
             
-            guard let data = data, let wikiJsonObject = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] ?? [String:Any]() else{
+            guard let data = data else{
                 self.delegate?.wikiNotFound(reason: .noData)
                 return
             }
             
-            guard let queryJsonObject = wikiJsonObject["query"] as? [String: Any], let pagesJsonObject = queryJsonObject["pages"] as? [String: [String: Any]] else{
+            guard let wikiJsonObject = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] else{
                 self.delegate?.wikiNotFound(reason: .badJSONResponse)
+                print("wikiJsonObject wrong")
+                return
+            }
+
+            guard let queryJsonObject = wikiJsonObject?["query"] as? [String: Any] else{
+                self.delegate?.wikiNotFound(reason: .badJSONResponse)
+                print("queryJsonObject wrong")
+                return
+            }
+            
+            guard let pagesJsonObject = queryJsonObject["pages"] as? [String: [String: Any]] else{
+                self.delegate?.wikiNotFound(reason: .badJSONResponse)
+                print("pagesJsonObject wrong")
                 return
             }
             
             
             let details = pagesJsonObject.first?.value
-            let pageId = details!["pageid"] as? String ?? ""
+            let pageId = details!["pageid"] as? Int ?? 0
             let title = details!["title"] as? String ?? ""
             let extract = details!["extract"] as? String ?? ""
             print("pageID: \(pageId), title: \(title), extract: \(extract.count)")

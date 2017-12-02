@@ -215,6 +215,7 @@
                                                 <connections>
                                                     <outlet property="labelScore" destination="r8G-HT-SKK" id="j0L-df-ajr"/>
                                                     <outlet property="visionLabel" destination="dv3-bD-cgG" id="O1S-ad-rTr"/>
+                                                    <segue destination="8qN-1q-I0g" kind="show" identifier="toWiki" id="xzP-zA-IiN"/>
                                                 </connections>
                                             </tableViewCell>
                                         </prototypes>
@@ -260,15 +261,23 @@
                                     <constraint firstAttribute="height" constant="44" id="wPL-GZ-DjI"/>
                                 </constraints>
                                 <items>
-                                    <barButtonItem title="WIKI" id="GSI-tq-IRM"/>
+                                    <barButtonItem title="WIKI" id="GSI-tq-IRM">
+                                        <connections>
+                                            <action selector="wikiOnclick:" destination="8qN-1q-I0g" id="GJO-DW-wGX"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="VuO-GP-u0g"/>
-                                    <barButtonItem title="TWEET" id="5hr-ZC-Upw"/>
+                                    <barButtonItem title="TWEET" id="5hr-ZC-Upw">
+                                        <connections>
+                                            <segue destination="Ipj-D1-54L" kind="show" id="qSM-nl-vrZ"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="g1K-oO-ljt"/>
                                     <barButtonItem title="SHARE" id="AZW-1v-eNm"/>
                                 </items>
                             </toolbar>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Elq-sU-6iA">
-                                <rect key="frame" x="0.0" y="20" width="375" height="62"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="62"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vision Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Krs-7x-GMp">
                                         <rect key="frame" x="0.0" y="0.0" width="313" height="62"/>
@@ -293,7 +302,7 @@
                                 </constraints>
                             </stackView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="OMv-a0-Zdo">
-                                <rect key="frame" x="0.0" y="82" width="375" height="541"/>
+                                <rect key="frame" x="0.0" y="126" width="375" height="497"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -317,12 +326,29 @@
                     </view>
                     <connections>
                         <outlet property="WIKISummary" destination="OMv-a0-Zdo" id="glw-eK-fNT"/>
+                        <outlet property="buttonTweet" destination="5hr-ZC-Upw" id="LFX-uR-YcL"/>
+                        <outlet property="buttonWiki" destination="GSI-tq-IRM" id="a3N-v6-yBv"/>
                         <outlet property="visionLabel" destination="Krs-7x-GMp" id="q62-iF-cBb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ykI-Sb-t2f" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1802.4000000000001" y="-205.54722638680661"/>
+        </scene>
+        <!--Search Timeline View Controller-->
+        <scene sceneID="gxL-EH-Wcd">
+            <objects>
+                <viewController id="Ipj-D1-54L" customClass="SearchTimelineViewController" customModule="WhatsThat" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zRj-Qj-INd" customClass="UITableView">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="ENv-0g-Rpn"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZOc-ua-xao" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2605" y="-209"/>
         </scene>
     </scenes>
 </document>
