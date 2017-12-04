@@ -60,6 +60,9 @@
                                         <state key="normal" title="Favorites">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="d3u-di-0d7" kind="show" identifier="showFavos" id="32i-UV-jZP"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="tintColor" red="0.88626929526303511" green="0.33345607436629821" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -77,6 +80,37 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iAC-Pc-EYW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-668" y="121.88905547226388"/>
+        </scene>
+        <!--Favorites Table View Controller-->
+        <scene sceneID="wav-5a-kj6">
+            <objects>
+                <tableViewController id="d3u-di-0d7" customClass="FavoritesTableViewController" customModule="WhatsThat" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Rae-ox-iyu">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="favoriteCell" id="ssR-lR-wxx">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ssR-lR-wxx" id="w0E-Z6-bD6">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="8qN-1q-I0g" kind="show" identifier="showFavorite" id="SS7-M9-rnT"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="d3u-di-0d7" id="WQ1-cH-lG3"/>
+                            <outlet property="delegate" destination="d3u-di-0d7" id="bh2-Qt-syS"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dA3-zr-mDC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="147" y="457"/>
         </scene>
         <!--Camera Functionality-->
         <scene sceneID="5OG-m0-gNe">
@@ -273,7 +307,11 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="g1K-oO-ljt"/>
-                                    <barButtonItem title="SHARE" id="AZW-1v-eNm"/>
+                                    <barButtonItem title="SHARE" id="AZW-1v-eNm">
+                                        <connections>
+                                            <action selector="shareOnclick:" destination="8qN-1q-I0g" id="zn2-hE-fh3"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Elq-sU-6iA">
@@ -295,6 +333,9 @@
                                             <constraint firstAttribute="width" constant="62" id="xva-hz-kUn"/>
                                         </constraints>
                                         <state key="normal" title="Favorite"/>
+                                        <connections>
+                                            <action selector="favoriteOnclick:" destination="8qN-1q-I0g" eventType="touchUpInside" id="It0-Zn-h6g"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -326,6 +367,7 @@
                     </view>
                     <connections>
                         <outlet property="WIKISummary" destination="OMv-a0-Zdo" id="glw-eK-fNT"/>
+                        <outlet property="buttonFavo" destination="roL-VY-2J5" id="oAw-B7-Jfu"/>
                         <outlet property="buttonTweet" destination="5hr-ZC-Upw" id="LFX-uR-YcL"/>
                         <outlet property="buttonWiki" destination="GSI-tq-IRM" id="a3N-v6-yBv"/>
                         <outlet property="visionLabel" destination="Krs-7x-GMp" id="q62-iF-cBb"/>
@@ -351,4 +393,7 @@
             <point key="canvasLocation" x="2605" y="-209"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="SS7-M9-rnT"/>
+    </inferredMetricsTieBreakers>
 </document>

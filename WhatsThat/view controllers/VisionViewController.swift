@@ -75,6 +75,7 @@ class VisionViewController: UIViewController, UITableViewDataSource, UITableView
         if(segue.identifier == "toWiki"){
             var viewController = segue.destination as! IdentificationViewController
             viewController.label = cellselected ?? ""
+            viewController.imageReceived = self.image
         }
     }
     

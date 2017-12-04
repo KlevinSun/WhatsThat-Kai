@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		783817F71FD4E5570078D7A7 /* Persistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783817F61FD4E5570078D7A7 /* Persistance.swift */; };
+		783817F91FD4EE750078D7A7 /* FavoritesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783817F81FD4EE750078D7A7 /* FavoritesTableViewController.swift */; };
 		7845FAE31FCF5BE8003B6BF9 /* WikiSummaryFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7845FAE21FCF5BE8003B6BF9 /* WikiSummaryFinder.swift */; };
 		7845FAE51FCF7141003B6BF9 /* Wiki.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7845FAE41FCF7141003B6BF9 /* Wiki.swift */; };
 		784756DD1FCB75C2005055F6 /* VisionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784756DC1FCB75C2005055F6 /* VisionViewController.swift */; };
@@ -28,6 +30,8 @@
 
 /* Begin PBXFileReference section */
 		48714A3EBABC740F1C0D1BB9 /* Pods-WhatsThat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhatsThat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WhatsThat/Pods-WhatsThat.debug.xcconfig"; sourceTree = "<group>"; };
+		783817F61FD4E5570078D7A7 /* Persistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistance.swift; sourceTree = "<group>"; };
+		783817F81FD4EE750078D7A7 /* FavoritesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewController.swift; sourceTree = "<group>"; };
 		7845FAE21FCF5BE8003B6BF9 /* WikiSummaryFinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikiSummaryFinder.swift; sourceTree = "<group>"; };
 		7845FAE41FCF7141003B6BF9 /* Wiki.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wiki.swift; sourceTree = "<group>"; };
 		784756DC1FCB75C2005055F6 /* VisionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionViewController.swift; sourceTree = "<group>"; };
@@ -130,6 +134,7 @@
 				784756DC1FCB75C2005055F6 /* VisionViewController.swift */,
 				78F6ED381FCE442100EF20AF /* IdentificationViewController.swift */,
 				78A48D601FD20B5500AB122C /* SearchTimelineViewController.swift */,
+				783817F81FD4EE750078D7A7 /* FavoritesTableViewController.swift */,
 			);
 			path = "view controllers";
 			sourceTree = "<group>";
@@ -149,6 +154,7 @@
 			children = (
 				784756DE1FCB7C08005055F6 /* VisionLabelFinder.swift */,
 				7845FAE21FCF5BE8003B6BF9 /* WikiSummaryFinder.swift */,
+				783817F61FD4E5570078D7A7 /* Persistance.swift */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -277,10 +283,12 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-WhatsThat/Pods-WhatsThat-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/Toast-Swift/Toast_Swift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Toast_Swift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -297,10 +305,12 @@
 				78AEAA821FC61785007282B3 /* AppDelegate.swift in Sources */,
 				78A48D611FD20B5500AB122C /* SearchTimelineViewController.swift in Sources */,
 				786833001FC90A5A00F440CA /* GVisionRequest.swift in Sources */,
+				783817F91FD4EE750078D7A7 /* FavoritesTableViewController.swift in Sources */,
 				78AEAA981FC6207E007282B3 /* MenuViewController.swift in Sources */,
 				786832FE1FC90A3100F440CA /* GVisionResponse.swift in Sources */,
 				78F6ED391FCE442100EF20AF /* IdentificationViewController.swift in Sources */,
 				7845FAE51FCF7141003B6BF9 /* Wiki.swift in Sources */,
+				783817F71FD4E5570078D7A7 /* Persistance.swift in Sources */,
 				784756DD1FCB75C2005055F6 /* VisionViewController.swift in Sources */,
 				7845FAE31FCF5BE8003B6BF9 /* WikiSummaryFinder.swift in Sources */,
 				78793BEA1FCBB4A3005B6C68 /* LabelTableViewCell.swift in Sources */,
