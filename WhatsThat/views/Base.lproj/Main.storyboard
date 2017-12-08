@@ -90,12 +90,26 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="favoriteCell" id="ssR-lR-wxx">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="favoriteCell" id="ssR-lR-wxx" customClass="FavoriteTableViewCell" customModule="WhatsThat" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ssR-lR-wxx" id="w0E-Z6-bD6">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fKI-fK-G6A">
+                                            <rect key="frame" x="254" y="0.0" width="93" height="44"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="fKI-fK-G6A" secondAttribute="height" multiplier="93:44" id="gvj-VF-gNU"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="fKI-fK-G6A" firstAttribute="centerY" secondItem="w0E-Z6-bD6" secondAttribute="centerY" id="Ct3-Qa-5e5"/>
+                                        <constraint firstAttribute="trailing" secondItem="fKI-fK-G6A" secondAttribute="trailing" constant="28" id="I2X-Ne-ERh"/>
+                                        <constraint firstAttribute="bottom" secondItem="fKI-fK-G6A" secondAttribute="bottom" id="OV4-PB-WO4"/>
+                                        <constraint firstItem="fKI-fK-G6A" firstAttribute="top" secondItem="w0E-Z6-bD6" secondAttribute="top" id="bY8-QO-DTT"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <segue destination="8qN-1q-I0g" kind="show" identifier="showFavorite" id="SS7-M9-rnT"/>
@@ -110,7 +124,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dA3-zr-mDC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="147" y="457"/>
+            <point key="canvasLocation" x="146.40000000000001" y="456.52173913043481"/>
         </scene>
         <!--Camera Functionality-->
         <scene sceneID="5OG-m0-gNe">
@@ -394,6 +408,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="SS7-M9-rnT"/>
+        <segue reference="xzP-zA-IiN"/>
     </inferredMetricsTieBreakers>
 </document>

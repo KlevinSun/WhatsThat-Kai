@@ -14,9 +14,11 @@
 		784756DD1FCB75C2005055F6 /* VisionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784756DC1FCB75C2005055F6 /* VisionViewController.swift */; };
 		784756DF1FCB7C08005055F6 /* VisionLabelFinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784756DE1FCB7C08005055F6 /* VisionLabelFinder.swift */; };
 		784756E11FCB7CCA005055F6 /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784756E01FCB7CCA005055F6 /* Label.swift */; };
+		784781D01FDA45E200D76244 /* FavoriteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784781CF1FDA45E200D76244 /* FavoriteTableViewCell.swift */; };
 		786832FE1FC90A3100F440CA /* GVisionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786832FD1FC90A3100F440CA /* GVisionResponse.swift */; };
 		786833001FC90A5A00F440CA /* GVisionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786832FF1FC90A5A00F440CA /* GVisionRequest.swift */; };
 		78793BEA1FCBB4A3005B6C68 /* LabelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78793BE91FCBB4A3005B6C68 /* LabelTableViewCell.swift */; };
+		788772A81FD751200085367B /* Summary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788772A71FD751200085367B /* Summary.swift */; };
 		78A48D611FD20B5500AB122C /* SearchTimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78A48D601FD20B5500AB122C /* SearchTimelineViewController.swift */; };
 		78AEAA821FC61785007282B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AEAA811FC61785007282B3 /* AppDelegate.swift */; };
 		78AEAA871FC61785007282B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78AEAA851FC61785007282B3 /* Main.storyboard */; };
@@ -37,9 +39,11 @@
 		784756DC1FCB75C2005055F6 /* VisionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionViewController.swift; sourceTree = "<group>"; };
 		784756DE1FCB7C08005055F6 /* VisionLabelFinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionLabelFinder.swift; sourceTree = "<group>"; };
 		784756E01FCB7CCA005055F6 /* Label.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
+		784781CF1FDA45E200D76244 /* FavoriteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteTableViewCell.swift; sourceTree = "<group>"; };
 		786832FD1FC90A3100F440CA /* GVisionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GVisionResponse.swift; sourceTree = "<group>"; };
 		786832FF1FC90A5A00F440CA /* GVisionRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GVisionRequest.swift; sourceTree = "<group>"; };
 		78793BE91FCBB4A3005B6C68 /* LabelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelTableViewCell.swift; sourceTree = "<group>"; };
+		788772A71FD751200085367B /* Summary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Summary.swift; sourceTree = "<group>"; };
 		78A48D601FD20B5500AB122C /* SearchTimelineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTimelineViewController.swift; sourceTree = "<group>"; };
 		78AEAA7E1FC61785007282B3 /* WhatsThat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhatsThat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		78AEAA811FC61785007282B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -122,6 +126,7 @@
 				78AEAA851FC61785007282B3 /* Main.storyboard */,
 				78AEAA881FC61785007282B3 /* Assets.xcassets */,
 				78793BE91FCBB4A3005B6C68 /* LabelTableViewCell.swift */,
+				784781CF1FDA45E200D76244 /* FavoriteTableViewCell.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -145,6 +150,7 @@
 				786832FC1FC9090800F440CA /* codable */,
 				784756E01FCB7CCA005055F6 /* Label.swift */,
 				7845FAE41FCF7141003B6BF9 /* Wiki.swift */,
+				788772A71FD751200085367B /* Summary.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -308,6 +314,8 @@
 				783817F91FD4EE750078D7A7 /* FavoritesTableViewController.swift in Sources */,
 				78AEAA981FC6207E007282B3 /* MenuViewController.swift in Sources */,
 				786832FE1FC90A3100F440CA /* GVisionResponse.swift in Sources */,
+				784781D01FDA45E200D76244 /* FavoriteTableViewCell.swift in Sources */,
+				788772A81FD751200085367B /* Summary.swift in Sources */,
 				78F6ED391FCE442100EF20AF /* IdentificationViewController.swift in Sources */,
 				7845FAE51FCF7141003B6BF9 /* Wiki.swift in Sources */,
 				783817F71FD4E5570078D7A7 /* Persistance.swift in Sources */,

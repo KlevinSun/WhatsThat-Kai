@@ -18,7 +18,8 @@ class IdentificationViewController: UIViewController {
     @IBOutlet weak var visionLabel: UILabel!
     @IBOutlet weak var WIKISummary: UITextView!
     var label: String = String()
-    var imageReceived: UIImage = UIImage()
+    var directory: String = String()
+    //var imageReceived: UIImage = UIImage()
     @IBOutlet weak var buttonWiki: UIBarButtonItem!
     @IBOutlet weak var buttonTweet: UIBarButtonItem!
     @IBOutlet weak var buttonFavo: UIButton!
@@ -28,7 +29,7 @@ class IdentificationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print(imageReceived)
+        //print(imageReceived)
         wikiFinder.delegate = self
         MBProgressHUD.showAdded(to: self.view, animated: true)
         buttonWiki.isEnabled = false
@@ -36,6 +37,7 @@ class IdentificationViewController: UIViewController {
         buttonFavo.isEnabled = false
         if(summary == nil){
             loadSummary(label: label)
+            print("directory: \(directory)")
         }else{
             MBProgressHUD.hide(for: self.view, animated: true)
             visionLabel.text = summary!.title
@@ -93,8 +95,8 @@ class IdentificationViewController: UIViewController {
 }
 
 extension IdentificationViewController: WikiSummaryDelegate{
-    func wikiFound(summary: Wiki) {
-        self.summary = summary
+    func wikiFound(summary: Summary) {
+        self.summary = Wiki(title: summary.title, pageId: summary.PageID, extract: summary.extract, directory: self.directory)
         DispatchQueue.main.async {
             MBProgressHUD.hide(for: self.view, animated: true)
             self.visionLabel.text = summary.title

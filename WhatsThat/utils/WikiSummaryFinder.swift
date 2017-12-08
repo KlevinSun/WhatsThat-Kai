@@ -9,7 +9,7 @@
 import Foundation
 
 protocol WikiSummaryDelegate {
-    func wikiFound(summary: Wiki)
+    func wikiFound(summary: Summary)
     func wikiNotFound(reason: WikiSummaryFinder.FailureReason)
 }
 
@@ -71,7 +71,7 @@ class WikiSummaryFinder {
             let title = details!["title"] as? String ?? ""
             let extract = details!["extract"] as? String ?? ""
             print("pageID: \(pageId), title: \(title), extract: \(extract.count)")
-            let summary = Wiki(title: title, pageId: pageId, extract: extract)
+            let summary = Summary(title: title, PageID: pageId, extract: extract)
             
             self.delegate?.wikiFound(summary: summary)
         }

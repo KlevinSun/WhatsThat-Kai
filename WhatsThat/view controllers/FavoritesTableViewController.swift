@@ -44,9 +44,11 @@ class FavoritesTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(favoriteWikis[indexPath.row].directory)
         if(shouldPerformSegue(withIdentifier: "showFavorite", sender: self) == false){
             performSegue(withIdentifier: "showFavorite", sender: self)
         }
+        
     }
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {

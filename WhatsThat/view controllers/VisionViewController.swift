@@ -12,6 +12,7 @@ import MBProgressHUD
 class VisionViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     var imageStr: String = String()
     var image: UIImage = UIImage()
+    var directory: String = String()
     var cellselected: String?
     @IBOutlet weak var showImage: UIImageView!
     @IBOutlet weak var tableView: UITableView!
@@ -75,7 +76,8 @@ class VisionViewController: UIViewController, UITableViewDataSource, UITableView
         if(segue.identifier == "toWiki"){
             var viewController = segue.destination as! IdentificationViewController
             viewController.label = cellselected ?? ""
-            viewController.imageReceived = self.image
+            viewController.directory = directory
+            //viewController.imageReceived = self.image
         }
     }
     
