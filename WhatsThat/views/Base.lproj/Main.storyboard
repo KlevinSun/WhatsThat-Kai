@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -100,18 +101,34 @@
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fKI-fK-G6A">
                                             <rect key="frame" x="254" y="0.0" width="93" height="44"/>
                                             <constraints>
+                                                <constraint firstAttribute="width" secondItem="fKI-fK-G6A" secondAttribute="height" multiplier="93:44" id="ao3-OM-vdU"/>
                                                 <constraint firstAttribute="width" secondItem="fKI-fK-G6A" secondAttribute="height" multiplier="93:44" id="gvj-VF-gNU"/>
                                             </constraints>
                                         </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oJj-ud-Eaz">
+                                            <rect key="frame" x="16" y="0.0" width="100" height="44"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="44" id="3Sq-DT-zzh"/>
+                                                <constraint firstAttribute="width" constant="100" id="G6I-HO-j1d"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="fKI-fK-G6A" firstAttribute="centerY" secondItem="w0E-Z6-bD6" secondAttribute="centerY" id="Ct3-Qa-5e5"/>
                                         <constraint firstAttribute="trailing" secondItem="fKI-fK-G6A" secondAttribute="trailing" constant="28" id="I2X-Ne-ERh"/>
                                         <constraint firstAttribute="bottom" secondItem="fKI-fK-G6A" secondAttribute="bottom" id="OV4-PB-WO4"/>
+                                        <constraint firstItem="oJj-ud-Eaz" firstAttribute="centerY" secondItem="w0E-Z6-bD6" secondAttribute="centerY" id="V3u-Ym-bG0"/>
                                         <constraint firstItem="fKI-fK-G6A" firstAttribute="top" secondItem="w0E-Z6-bD6" secondAttribute="top" id="bY8-QO-DTT"/>
+                                        <constraint firstItem="oJj-ud-Eaz" firstAttribute="leading" secondItem="w0E-Z6-bD6" secondAttribute="leadingMargin" id="lGj-5L-xOg"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="favoImage" destination="fKI-fK-G6A" id="O2Y-mB-0UE"/>
+                                    <outlet property="favoLabe" destination="oJj-ud-Eaz" id="6Uf-eE-HUY"/>
+                                    <outlet property="image" destination="fKI-fK-G6A" id="XTf-te-NC6"/>
                                     <segue destination="8qN-1q-I0g" kind="show" identifier="showFavorite" id="SS7-M9-rnT"/>
                                 </connections>
                             </tableViewCell>

@@ -9,7 +9,9 @@
 import UIKit
 
 class FavoriteTableViewCell: UITableViewCell{
-    @IBOutlet weak var favoImage: UIImage!
+    @IBOutlet weak var favoLabe: UILabel!
+    @IBOutlet weak var favoImage: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }

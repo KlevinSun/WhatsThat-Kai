@@ -19,7 +19,13 @@ class Persistance{
         let data = userDefaults.object(forKey: WikisKey) as? Data
         
         if let data = data {
-            return NSKeyedUnarchiver.unarchiveObject(with: data) as? [Wiki] ?? [Wiki]()
+            var wikiArray = NSKeyedUnarchiver.unarchiveObject(with: data) as? [Wiki] ?? [Wiki]()
+            //for i in wikiArray{
+                
+                //wikiArray.remove(at: wikiArray.index(of: i)!)
+                
+            //}
+            return wikiArray
         }else{
             return [Wiki]()
         }

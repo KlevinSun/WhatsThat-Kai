@@ -30,10 +30,12 @@ class FavoritesTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "favoriteCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "favoriteCell", for: indexPath) as! FavoriteTableViewCell
 
         let favorite = favoriteWikis[indexPath.row]
-        cell.textLabel?.text = "\(favorite.title)"
+
+        cell.favoLabe.text = favorite.title
+        cell.favoImage.getImage(directory: favorite.path)
         
         return cell
     }

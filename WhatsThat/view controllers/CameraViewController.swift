@@ -55,8 +55,8 @@ class CameraViewController: UIViewController {
     
     func saveImageDocumentDirectory(name: String, imageData: Data){
         let fileManager = FileManager.default
-        let paths = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent("\(name).jpg")
-        directory = paths
+        let paths = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent("\(name).png")
+        directory = "\(name).png"
         fileManager.createFile(atPath: paths as String, contents: imageData, attributes: nil)
     }
 }
@@ -68,17 +68,14 @@ extension CameraViewController: UIImagePickerControllerDelegate, UINavigationCon
         imageFound = (info["UIImagePickerControllerEditedImage"] as? UIImage)!
         imageView.image = imageFound
         imagePicker.dismiss(animated: true, completion: nil)
-        if(picker.sourceType == .photoLibrary){
-            directory = String(describing: info["UIImagePickerControllerReferenceURL"] as! NSURL)
-            print("this is the directory: \(directory)")
-        }else{
-            let date :NSDate = NSDate()
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "yyyy-MM-dd'_'HH_mm_ss"
-            dateFormatter.timeZone = NSTimeZone(name: "GMT")! as TimeZone
+        
+        let date :NSDate = NSDate()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'_'HH_mm_ss"
+        dateFormatter.timeZone = NSTimeZone(name: "GMT")! as TimeZone
 
-            self.saveImageDocumentDirectory(name: "\(dateFormatter.string(from: date as Date))", imageData: UIImagePNGRepresentation(imageFound)!)
-        }
+        self.saveImageDocumentDirectory(name: "\(dateFormatter.string(from: date as Date))", imageData: UIImagePNGRepresentation(imageFound)!)
+        
         
         //let imageData:NSData = UIImageJPEGRepresentation(imageView.image!, 0.9)! as NSData
         imageStr = base64EncodeImage(imageFound)
