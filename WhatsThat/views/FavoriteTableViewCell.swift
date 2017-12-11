@@ -4,7 +4,7 @@
 //
 //  Created by Kai Sun on 12/7/17.
 //  Copyright © 2017 Kai Sun. All rights reserved.
-//
+//  favorite TableView cell prototype
 
 import UIKit
 

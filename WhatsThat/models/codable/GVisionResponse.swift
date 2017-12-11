@@ -4,7 +4,7 @@
 //
 //  Created by Kai Sun on 11/24/17.
 //  Copyright © 2017 Kai Sun. All rights reserved.
-//
+//  A codable struct to parse json received from Google Vision
 
 import Foundation
 

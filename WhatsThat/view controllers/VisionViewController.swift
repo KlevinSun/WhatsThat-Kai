@@ -4,7 +4,7 @@
 //
 //  Created by Kai Sun on 11/26/17.
 //  Copyright © 2017 Kai Sun. All rights reserved.
-//
+//  Google vision image Label detect view, this view have half image and half tableView, image come from the former view segue
 
 import UIKit
 import MBProgressHUD
@@ -21,10 +21,10 @@ class VisionViewController: UIViewController, UITableViewDataSource, UITableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+// if the base64 encoded imageStr sent failed, give a alertview; else, fetchVisionLabel use the imageStr
         let labelFinder = VisionLabelFinder()
         if(imageStr == ""){
-            let alert = UIAlertController(title: "Warning", message: "Did not select image", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Warning", message: "Did not select an image for detect", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             self.present(alert, animated: true, completion: nil)
         }else{
@@ -32,14 +32,12 @@ class VisionViewController: UIViewController, UITableViewDataSource, UITableView
             MBProgressHUD.showAdded(to: self.view, animated: true)
             labelFinder.fetchVisionLabel(imageStr: imageStr)
         }
-        
-
     }
-
+// get the table view rows
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return labels.count
     }
-    
+// load label information: label name and label likelihood score
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "labelCell", for: indexPath) as! LabelTableViewCell
         let label = labels[indexPath.row]
@@ -48,36 +46,30 @@ class VisionViewController: UIViewController, UITableViewDataSource, UITableView
         
         return cell
     }
-    
+// when select a cell, prepare the data for next view
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
         let index = indexPath
         let currentCell = labels[index.row]
         cellselected = currentCell.description
         return indexPath
     }
-    
+// when a cell is selected, envoke a segue to Wiki identification view
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         if (shouldPerformSegue(withIdentifier: "toWiki", sender: self) == false){
             performSegue(withIdentifier: "toWiki", sender: self)
         }
-        
-        /*let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let viewController = storyboard.instantiateViewController(withIdentifier: "wikiSummary") as! IdentificationViewController
-        viewController.label = cellselected
-        self.present(viewController, animated: true , completion: nil)*/
     }
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         return cellselected == nil
     }
-    
+// prepare the data for segue to send
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier == "toWiki"){
-            var viewController = segue.destination as! IdentificationViewController
+            let viewController = segue.destination as! IdentificationViewController
             viewController.label = cellselected ?? ""
             viewController.directory = directory
-            //viewController.imageReceived = self.image
         }
     }
     
@@ -85,6 +77,7 @@ class VisionViewController: UIViewController, UITableViewDataSource, UITableView
 }
 
 extension VisionViewController: VisionLabelDelegate {
+// if google vision found labels of image, callback following function
     func labelsFound(labels: [Label]) {
         self.labels = labels
         DispatchQueue.main.async {
@@ -93,7 +86,7 @@ extension VisionViewController: VisionLabelDelegate {
             self.tableView.reloadData()
         }
     }
-    
+// if google vision didn't found labels of image, callback following function
     func labelsNotFound() {
         print("no labels found")
     }

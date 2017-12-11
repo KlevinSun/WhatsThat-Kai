@@ -4,7 +4,7 @@
 //
 //  Created by Kai Sun on 11/24/17.
 //  Copyright © 2017 Kai Sun. All rights reserved.
-//
+//  A codable struct used to build request body of Google Vision Request
 
 import Foundation
 

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="HM5-md-9ls">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="HM5-md-9ls">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -101,8 +101,9 @@
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fKI-fK-G6A">
                                             <rect key="frame" x="254" y="0.0" width="93" height="44"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" secondItem="fKI-fK-G6A" secondAttribute="height" multiplier="93:44" id="ao3-OM-vdU"/>
+                                                <constraint firstAttribute="height" constant="44" id="EnX-Gu-R8o"/>
                                                 <constraint firstAttribute="width" secondItem="fKI-fK-G6A" secondAttribute="height" multiplier="93:44" id="gvj-VF-gNU"/>
+                                                <constraint firstAttribute="width" constant="93" id="yrD-OP-TQB"/>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oJj-ud-Eaz">
@@ -121,14 +122,16 @@
                                         <constraint firstAttribute="trailing" secondItem="fKI-fK-G6A" secondAttribute="trailing" constant="28" id="I2X-Ne-ERh"/>
                                         <constraint firstAttribute="bottom" secondItem="fKI-fK-G6A" secondAttribute="bottom" id="OV4-PB-WO4"/>
                                         <constraint firstItem="oJj-ud-Eaz" firstAttribute="centerY" secondItem="w0E-Z6-bD6" secondAttribute="centerY" id="V3u-Ym-bG0"/>
+                                        <constraint firstAttribute="trailing" secondItem="fKI-fK-G6A" secondAttribute="trailing" constant="28" id="VpJ-Gt-8sv"/>
                                         <constraint firstItem="fKI-fK-G6A" firstAttribute="top" secondItem="w0E-Z6-bD6" secondAttribute="top" id="bY8-QO-DTT"/>
                                         <constraint firstItem="oJj-ud-Eaz" firstAttribute="leading" secondItem="w0E-Z6-bD6" secondAttribute="leadingMargin" id="lGj-5L-xOg"/>
+                                        <constraint firstAttribute="bottom" secondItem="fKI-fK-G6A" secondAttribute="bottom" constant="-0.5" id="o4F-9U-rQw"/>
+                                        <constraint firstItem="fKI-fK-G6A" firstAttribute="top" secondItem="w0E-Z6-bD6" secondAttribute="top" id="z9t-ve-JP4"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="favoImage" destination="fKI-fK-G6A" id="O2Y-mB-0UE"/>
                                     <outlet property="favoLabe" destination="oJj-ud-Eaz" id="6Uf-eE-HUY"/>
-                                    <outlet property="image" destination="fKI-fK-G6A" id="XTf-te-NC6"/>
                                     <segue destination="8qN-1q-I0g" kind="show" identifier="showFavorite" id="SS7-M9-rnT"/>
                                 </connections>
                             </tableViewCell>

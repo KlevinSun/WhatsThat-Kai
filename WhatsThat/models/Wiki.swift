@@ -4,15 +4,9 @@
 //
 //  Created by Kai Sun on 11/29/17.
 //  Copyright © 2017 Kai Sun. All rights reserved.
-//
+//  A class used to save Wiki summary data and favorite persistance
 
 import Foundation
-
-/*struct Wiki {
-    let title: String
-    let pageId: Int
-    let extract: String
-}*/
 
 class Wiki: NSObject{
     let title: String

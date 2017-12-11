@@ -4,7 +4,7 @@
 //
 //  Created by Kai Sun on 11/28/17.
 //  Copyright © 2017 Kai Sun. All rights reserved.
-//
+//  Wiki identification view showing wiki summary, with button to evoke wiki, twitter, share, and favorite
 
 import UIKit
 import MBProgressHUD
@@ -19,26 +19,27 @@ class IdentificationViewController: UIViewController {
     @IBOutlet weak var WIKISummary: UITextView!
     var label: String = String()
     var directory: String = String()
-    //var imageReceived: UIImage = UIImage()
     @IBOutlet weak var buttonWiki: UIBarButtonItem!
     @IBOutlet weak var buttonTweet: UIBarButtonItem!
     @IBOutlet weak var buttonFavo: UIButton!
     var summary: Wiki?
+    // initial a WikiSummaryFinder
     let wikiFinder = WikiSummaryFinder()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //print(imageReceived)
+
         wikiFinder.delegate = self
         MBProgressHUD.showAdded(to: self.view, animated: true)
         buttonWiki.isEnabled = false
         buttonTweet.isEnabled = false
         buttonFavo.isEnabled = false
         if(summary == nil){
+            // load summary from Wiki API using the label sent to this view
             loadSummary(label: label)
             print("directory: \(directory)")
         }else{
+            //if summary already have value, means it come from favorites table view, load information to the view
             MBProgressHUD.hide(for: self.view, animated: true)
             visionLabel.text = summary!.title
             WIKISummary.text = summary!.extract
@@ -47,18 +48,18 @@ class IdentificationViewController: UIViewController {
             buttonTweet.isEnabled = true
             buttonFavo.isEnabled = false
         }
-        
     }
 
     func loadSummary(label: String){
-        
+        // load Wiki Summary
         wikiFinder.fetchWikiSummary(label: label)
     }
-
+// When WIKI button is clicked, evoke following function
     @IBAction func wikiOnclick(_ sender: Any) {
+        // load Wiki page using SafariServices
         showSafari(pageID: (summary?.pageId)!)
     }
-  
+// if SHARE button is clicked, evoke following function using UIActivityViewController
     @IBAction func shareOnclick(_ sender: Any) {
         let textToShare = "\(label) is \(String(describing: summary?.extract))!"
         
@@ -66,7 +67,7 @@ class IdentificationViewController: UIViewController {
         
         present(activityViewController, animated: true, completion: nil)
     }
-    
+// if favorite button is clicked, evoke following function using UserDefault to save persistance data in App
     @IBAction func favoriteOnclick(_ sender: Any) {
         if(summary != nil){
             Persistance.shareInstance.saveWikis(summary!)
@@ -76,7 +77,7 @@ class IdentificationViewController: UIViewController {
             self.view.makeToast("Favorite Add Failed!")
         }
     }
-    
+// load Wiki webpage using SafariViewController
     func showSafari(pageID : Int) {
         if let url = URL(string: "https://en.wikipedia.org/?curid=\(pageID)") {
             let config = SFSafariViewController.Configuration()
@@ -86,7 +87,7 @@ class IdentificationViewController: UIViewController {
             present(vc, animated: true)
         }
     }
-    
+// prepare data for Twitter page
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destView = segue.destination as? SearchTimelineViewController {
             destView.searchTweet = label
@@ -95,9 +96,12 @@ class IdentificationViewController: UIViewController {
 }
 
 extension IdentificationViewController: WikiSummaryDelegate{
+    // if Wiki Summary is found successfully, callback following function
     func wikiFound(summary: Summary) {
+        // restruct Summary to a Wiki object, add the directory created in the cameraViewController
         self.summary = Wiki(title: summary.title, pageId: summary.PageID, extract: summary.extract, directory: self.directory)
         DispatchQueue.main.async {
+            // load data
             MBProgressHUD.hide(for: self.view, animated: true)
             self.visionLabel.text = summary.title
             self.WIKISummary.text = summary.extract
@@ -107,6 +111,7 @@ extension IdentificationViewController: WikiSummaryDelegate{
             self.buttonFavo.isEnabled = true
         }
     }
+    // if Wiki Summary is not found, callback following function, give a alertView with failureReason
     func wikiNotFound(reason: WikiSummaryFinder.FailureReason) {
         DispatchQueue.main.async {
             MBProgressHUD.hide(for: self.view, animated: true)

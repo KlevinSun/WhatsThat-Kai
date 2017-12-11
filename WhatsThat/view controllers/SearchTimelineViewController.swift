@@ -4,7 +4,7 @@
 //
 //  Created by Kai Sun on 12/1/17.
 //  Copyright © 2017 Kai Sun. All rights reserved.
-//
+//  Twitter View Controller, load Twitter timeline data using TwitterKit
 
 import UIKit
 import TwitterKit
